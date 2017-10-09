@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>视频</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
+
+<style type="text/css" media="screen">
+body{background-color:#000;}
+#playvideo{width:100%;margin:0 auto;margin-top:50%;background-color:#fff;} 
+</style>
+</head>
+<body>
+  <div id="playvideo" typeid="qq" sid="i0535a6vy2k" pic="http://www.eeepay.cn/eeepay/admin/uploadimg/20170712/1499839030734324.jpg" ></div>
+</body>
+<script type="text/javascript" src="http://192.168.2.29/sison/example/js/play-video.1.0.6.min.js"></script>
+
+<script type="text/javascript">
+  var playvideo=document.getElementById("playvideo");
+playvideo.style.height=playvideo.offsetWidth*0.5+"px";
+
+window.onload=function(){
+  createVideo({
+          id:"playvideo",
+          autoplay:true,
+          minWin:false,
+          qqchannel:playvideo.getAttribute("channel")=="true"?true:false,
+          multiple:{
+            typeid:playvideo.getAttribute("typeid"),
+            sid:playvideo.getAttribute("sid"),
+            vid:playvideo.getAttribute("vid"),
+            pic:playvideo.getAttribute("pic")
+          }
+        });
+}
+window.onresize=function(){
+  playvideo.style.height=playvideo.offsetWidth*0.5+"px";
+};
+
+</script>
+
+</html>
